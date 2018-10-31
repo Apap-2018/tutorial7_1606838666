@@ -1,5 +1,6 @@
 package com.apap.tutorial7.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -29,6 +30,12 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
+	public CarModel addCarAndReturn(CarModel car) {
+		carDb.save(car);
+		return car;
+	}
+
+	@Override
 	public void deleteCar(long carId) {
 		// TODO Auto-generated method stub
 		carDb.deleteById(carId);
@@ -49,5 +56,10 @@ public class CarServiceImpl implements CarService {
 		updatedCar.setPrice(newCar.getPrice());
 		updatedCar.setType(newCar.getType());
 		carDb.save(updatedCar);
+	}
+
+	@Override
+	public List<CarModel> getAll() {
+		return carDb.findAll();
 	}
 }

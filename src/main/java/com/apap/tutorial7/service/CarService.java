@@ -1,5 +1,6 @@
 package com.apap.tutorial7.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.apap.tutorial7.model.CarModel;
@@ -12,7 +13,9 @@ import com.apap.tutorial7.model.DealerModel;
  */
 public interface CarService {
 	void addCar(CarModel car);
+	CarModel addCarAndReturn(CarModel car);
 	void deleteCar(long carId);
 	void editCar(CarModel newCar, Long id);
 	Optional<CarModel> getCarDetailById(Long id);
+	List<CarModel> getAll();
 }

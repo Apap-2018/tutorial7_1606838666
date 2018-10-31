@@ -63,6 +63,28 @@ public class CarController {
 		carService.editCar(car, id);
 		return "car update success";
 	}
+
+	@PostMapping()
+	private CarModel addCarSubmit(@RequestBody CarModel car) {
+		return carService.addCarAndReturn(car);
+	}
+
+	@GetMapping(value = "/{id}")
+	private CarModel viewCar(@PathVariable("id") long id) {
+		CarModel car = carService.getCarDetailById(id).get();
+		return car;
+	}
+
+	@GetMapping()
+	private List<CarModel> viewAllCar() {
+		return carService.getAll();
+	}
+
+	@DeleteMapping(value = "/{id}")
+	private String deleteCar(@PathVariable("id") long id) {
+		carService.deleteCar(id);
+		return "Success";
+	}
 	
 //	@RequestMapping(value = "/car/add/{dealerId}", method = RequestMethod.GET)
 //	private String add(@PathVariable(value = "dealerId") Long dealerId, Model model) {
