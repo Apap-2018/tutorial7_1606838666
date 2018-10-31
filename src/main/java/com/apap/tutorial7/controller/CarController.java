@@ -72,16 +72,12 @@ public class CarController {
 	@GetMapping(value = "/{id}")
 	private CarModel viewCar(@PathVariable("id") long id) {
 		CarModel car = carService.getCarDetailById(id).get();
-		car.setDealer(null);
 		return car;
 	}
 
 	@GetMapping()
 	private List<CarModel> viewAllCar() {
 		List<CarModel> listCar = carService.getAll();
-		for (CarModel car: listCar) {
-			car.setDealer(null);
-		}
 		return listCar;
 	}
 
