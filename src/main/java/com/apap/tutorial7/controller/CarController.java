@@ -72,6 +72,7 @@ public class CarController {
 	@GetMapping(value = "/{id}")
 	private CarModel viewCar(@PathVariable("id") long id) {
 		CarModel car = carService.getCarDetailById(id).get();
+		car.setDealer(null);
 		return car;
 	}
 
