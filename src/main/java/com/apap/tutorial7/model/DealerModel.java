@@ -1,5 +1,7 @@
 package com.apap.tutorial7.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class DealerModel implements Serializable {
 	private String noTelp;
 	
 	@OneToMany(mappedBy = "dealer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<CarModel> listCar;
 	
 	public void setId(long id) {

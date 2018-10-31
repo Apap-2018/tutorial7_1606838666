@@ -77,7 +77,11 @@ public class CarController {
 
 	@GetMapping()
 	private List<CarModel> viewAllCar() {
-		return carService.getAll();
+		List<CarModel> listCar = carService.getAll();
+		for (CarModel car: listCar) {
+			car.setDealer(null);
+		}
+		return listCar;
 	}
 
 	@DeleteMapping(value = "/{id}")

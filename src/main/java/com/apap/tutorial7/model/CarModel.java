@@ -53,7 +53,6 @@ public class CarModel {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dealer_id", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
-	@JsonIgnore
 	private DealerModel dealer;
 	
 	public void setId(long id) {
