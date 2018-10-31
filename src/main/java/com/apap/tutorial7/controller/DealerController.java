@@ -65,7 +65,7 @@ public class DealerController {
 			) {
 		DealerModel dealer = dealerService.getDealerDetailById(id).get();
 
-		if (dealer.equals(null)) {
+		if (dealer == null) {
 			return "Couldn't find your dealer";
 		}
 		dealer.setAlamat(alamat);
